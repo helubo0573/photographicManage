@@ -1,0 +1,19 @@
+@charset "UTF-8";
+.frame-box{
+	box-shadow: 0 0 10px #FFFFFF;
+	border:1px solid #FFF;
+	background-color: rgba(0,0,0,.2);
+	color: #FFF;
+}
+
+.error-input{
+	border:3px solid red;
+}
+
+.right-input{
+	border:3px solid #00ce00;
+}
+
+button {
+	opacity: 0.6;
+}

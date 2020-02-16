@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- sys_role_perm表:自动发布产品编号模块 -->
+<mapper namespace="com.heav.photographic.core.mapper.SysRolePermMapper">
+    <!--返回Map-->        
+    <resultMap id="BaseResultMap" type="com.heav.photographic.core.domain.SysRolePerm">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="role_id" property="roleId" jdbcType="INTEGER" />
+        <result column="perm_id" property="permId" jdbcType="INTEGER" />
+        <result column="add_user" property="addUser" jdbcType="VARCHAR" />
+        <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+    
+    <!--基本的sql查询字段 公共引用...-->
+    <sql id="Base_Column_List">
+        id,role_id,perm_id,add_user,add_time 
+    </sql>
+    
+    <!-- 基本的sql查询条件公共引用 -->
+    <sql id="searchBy">
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test=" id != null and id != '' ">
+                id  = #{id,jdbcType=INTEGER}
+            </if>
+            <if test="roleId != null and roleId != '' ">
+                and role_id = #{roleId,jdbcType=INTEGER}
+            </if>
+            <if test="permId != null and permId != '' ">
+                and perm_id = #{permId,jdbcType=INTEGER}
+            </if>
+            <if test="addUser != null and addUser != '' ">
+                and add_user = #{addUser,jdbcType=VARCHAR}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime,jdbcType=TIMESTAMP}
+            </if>
+        </trim>
+    </sql>
+    
+    
+    <insert id="save" parameterType="com.heav.photographic.core.domain.SysRolePerm">
+        insert into sys_role_perm(role_id,perm_id,add_user,add_time)values(#{roleId,jdbcType=INTEGER},#{permId,jdbcType=INTEGER},#{addUser,jdbcType=VARCHAR},#{addTime,jdbcType=TIMESTAMP})
+    </insert>
+
+    
+    <update id="update" parameterType="com.heav.photographic.core.domain.SysRolePerm">
+        update sys_role_perm set 
+            role_id = #{roleId,jdbcType=INTEGER},
+            perm_id = #{permId,jdbcType=INTEGER},
+            add_user = #{addUser,jdbcType=VARCHAR},
+            add_time = #{addTime,jdbcType=TIMESTAMP}
+        where id = #{id ,jdbcType=INTEGER}
+    </update>
+
+
+    <update id="updateSelective"  parameterType="java.util.HashMap">
+        update sys_role_perm
+          <set>
+            <if test="roleId != null and roleId != '' ">        
+                role_id = #{roleId,jdbcType=INTEGER},                
+            </if>
+            <if test="permId != null and permId != '' ">        
+                perm_id = #{permId,jdbcType=INTEGER},                
+            </if>
+            <if test="addUser != null and addUser != '' ">        
+                add_user = #{addUser,jdbcType=VARCHAR},                
+            </if>
+            <if test="addTime != null">
+                add_time = #{addTime,jdbcType=TIMESTAMP}                
+            </if>
+        </set>    
+        where id = #{id ,jdbcType=INTEGER}
+    </update>
+
+
+    <select id="findByPrimary" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List" />
+        from sys_role_perm
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+	<select id="findSelective" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+        select
+        <include refid="Base_Column_List" />
+        from sys_role_perm
+        <include refid="searchBy"/>
+    </select>
+               
+    <select id="listSelective" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+        select
+        <include refid="Base_Column_List" />
+        from sys_role_perm
+        <include refid="searchBy"/>
+    </select>
+    
+</mapper>
