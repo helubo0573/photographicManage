@@ -24,7 +24,7 @@
 		<jackson.databind.version>2.4.3</jackson.databind.version>
 		<jackson.annotations.version>2.6.1</jackson.annotations.version>
 		<jackson.mapper.version>1.9.4</jackson.mapper.version>
-		<fastjson.version>1.1.31</fastjson.version>
+		<fastjson.version>1.2.25</fastjson.version>
 		<aspectjweaver.version>1.6.7</aspectjweaver.version>
 	</properties>
 	<!-- jar上传地址 -->
