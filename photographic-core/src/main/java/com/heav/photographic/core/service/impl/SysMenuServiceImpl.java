@@ -17,14 +17,14 @@ import com.heav.photographic.core.service.SysMenuService;
 
 
 /**
- * 自动发布产品编号ServiceImpl
+ * 用户角色信息映射ServiceImpl
  * 
  * @author stone
  * @version 1.0.0
- * @date 2019-05-29 11:06:27
+ * @date 2020-02-16 18:55:12
  */
  
-@Service(value="sysMenuService")
+@Service("sysMenuService")
 public class SysMenuServiceImpl extends BaseServiceImpl<SysMenu, Long> implements SysMenuService {
 	
     private static final Logger logger = LoggerFactory.getLogger(SysMenuServiceImpl.class);

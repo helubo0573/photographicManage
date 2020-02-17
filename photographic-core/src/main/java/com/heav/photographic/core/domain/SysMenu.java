@@ -4,11 +4,11 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 自动发布产品编号实体
+ * 用户角色信息映射实体
  * 
  * @author stone
  * @version 1.0.0
- * @date 2019-05-29 11:06:27
+ * @date 2020-02-16 18:55:12
  */
  public class SysMenu implements Serializable {
 
@@ -28,6 +28,11 @@ import java.util.Date;
     * 父菜单id
     */
     private Integer parentId;
+
+    /**
+    * 
+    */
+    private String urlPath;
 
     /**
     * 图标
@@ -97,6 +102,24 @@ import java.util.Date;
     */
     public void setParentId(Integer parentId){
         this.parentId = parentId;
+    }
+
+    /**
+    * 获取
+    *
+    * @return 
+    */
+    public String getUrlPath(){
+        return urlPath;
+    }
+
+    /**
+    * 设置
+    * 
+    * @param urlPath 要设置的
+    */
+    public void setUrlPath(String urlPath){
+        this.urlPath = urlPath;
     }
 
     /**

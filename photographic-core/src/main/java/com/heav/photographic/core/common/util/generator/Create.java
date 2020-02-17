@@ -9,12 +9,12 @@ public class Create
 	final static String MysqlUser = "root";
 	final static String mysqlPassword = "123";
 	final static String classAuthor = "stone";		
-	final static String database = "photographicmanage";
+	final static String database = "photographic";
 	final static String commonName = "com.heav.photographic.core.common";	// 公共包路径 (例如 BaseDao、 BaseService、 BaseServiceImpl)
 	final static String mapperpath = "config/mappers/";				// Mapper文件存储地址 默认在resources中
 	//以下是需要配置的参数
 	//表名
-	final static String table = "sys_user_role";
+	final static String table = "sys_menu";
 	//类说明
 	final static String functionName = "用户角色信息映射";
 	//包路径
@@ -22,7 +22,7 @@ public class Create
 	//module名称
 	final static String moduleName = "core";
 	// 类名前缀
-	final static String classNamePrefix = "SysUserRole";
+	final static String classNamePrefix = "SysMenu";
 	public static final Logger logger = LoggerFactory.getLogger(Create.class);
 
 	public static void main(String[] args)

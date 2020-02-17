@@ -91,7 +91,7 @@ $(document).ready(function(){
 						var innerHTML="<dl class='menu_dl' data-fid='"+m.id+"'><dt class='"+m.iconCode+"'>"+m.menuName+"<img src='${pageContext.request.contextPath}/static/img/menu_click.png'></dt></dl>";
 						$("#menu_div").append(innerHTML)
 					}else{
-						var innerHTML="<dd><a class='menu_a' href='/photographic-manage/goods/manage.do'>"+m.menuName+"</a></dd>";
+						var innerHTML="<dd><a class='menu_a' href='.."+m.urlPath+"'>"+m.menuName+"</a></dd>";
 						$("dl[data-fid='"+m.parentId+"']").append(innerHTML)
 					}
 				})

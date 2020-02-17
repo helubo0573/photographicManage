@@ -7,16 +7,16 @@ import com.heav.photographic.core.common.mapper.RDBatisDao;
 import com.heav.photographic.core.domain.SysMenu;
 
 /**
- * 自动发布产品编号Dao
+ * 用户角色信息映射Dao
  * 
  * @author stone
  * @version 1.0.0
- * @date 2019-05-29 11:06:27
+ * @date 2020-02-16 18:55:12
  */
 @RDBatisDao
 public interface SysMenuMapper extends BaseMapper<SysMenu, Long> {
 
-    List<SysMenu> getMenuByUserName(String user);
+	List<SysMenu> getMenuByUserName(String user);
     
     List<SysMenu> getAllmenu();
 

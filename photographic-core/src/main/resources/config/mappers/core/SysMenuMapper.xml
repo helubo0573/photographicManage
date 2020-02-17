@@ -109,16 +109,5 @@
         from sys_menu
         <include refid="searchBy"/>
     </select>
-        
-    <select id="getMenuByUserName" parameterType="String" resultMap="BaseResultMap">
-    	select *
-    	from sys_menu
-    </select>
-    
-    <select id="getAllmenu" resultMap="BaseResultMap">
-    	select *
-    	from sys_menu
-    	order by parent_id,sort
-    </select>
     
 </mapper>

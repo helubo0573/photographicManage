@@ -7,14 +7,13 @@ import com.heav.photographic.core.domain.SysMenu;
 import com.heav.photographic.core.model.MenuModel;
 
 /**
- * 自动发布产品编号Service
+ * 用户角色信息映射Service
  * 
  * @author stone
  * @version 1.0.0
- * @date 2019-05-29 11:06:27
+ * @date 2020-02-16 18:55:12
  */
 public interface SysMenuService extends BaseService<SysMenu, Long>{
 
 	List<MenuModel> getMenuListByRoleIds(List<Long> roleIdList);
-
 }
