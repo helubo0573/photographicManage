@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!-- sys_menu表:自动发布产品编号模块 -->
+<!-- sys_menu表:用户角色信息映射模块 -->
 <mapper namespace="com.heav.photographic.core.mapper.SysMenuMapper">
     <!--返回Map-->        
     <resultMap id="BaseResultMap" type="com.heav.photographic.core.domain.SysMenu">
         <id column="id" property="id" jdbcType="INTEGER" />
         <result column="menu_name" property="menuName" jdbcType="VARCHAR" />
         <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+        <result column="url_path" property="urlPath" jdbcType="VARCHAR" />
         <result column="icon_code" property="iconCode" jdbcType="VARCHAR" />
         <result column="sort" property="sort" jdbcType="INTEGER" />
         <result column="remarks" property="remarks" jdbcType="VARCHAR" />
@@ -14,7 +15,7 @@
     
     <!--基本的sql查询字段 公共引用...-->
     <sql id="Base_Column_List">
-        id,menu_name,parent_id,icon_code,sort,remarks 
+        id,menu_name,parent_id,url_path,icon_code,sort,remarks 
     </sql>
     
     <!-- 基本的sql查询条件公共引用 -->
@@ -28,6 +29,9 @@
             </if>
             <if test="parentId != null and parentId != '' ">
                 and parent_id = #{parentId,jdbcType=INTEGER}
+            </if>
+            <if test="urlPath != null and urlPath != '' ">
+                and url_path = #{urlPath,jdbcType=VARCHAR}
             </if>
             <if test="iconCode != null and iconCode != '' ">
                 and icon_code = #{iconCode,jdbcType=VARCHAR}
@@ -43,7 +47,7 @@
     
     
     <insert id="save" parameterType="com.heav.photographic.core.domain.SysMenu">
-        insert into sys_menu(menu_name,parent_id,icon_code,sort,remarks)values(#{menuName,jdbcType=VARCHAR},#{parentId,jdbcType=INTEGER},#{iconCode,jdbcType=VARCHAR},#{sort,jdbcType=INTEGER},#{remarks,jdbcType=VARCHAR})
+        insert into sys_menu(menu_name,parent_id,url_path,icon_code,sort,remarks)values(#{menuName,jdbcType=VARCHAR},#{parentId,jdbcType=INTEGER},#{urlPath,jdbcType=VARCHAR},#{iconCode,jdbcType=VARCHAR},#{sort,jdbcType=INTEGER},#{remarks,jdbcType=VARCHAR})
     </insert>
 
     
@@ -51,6 +55,7 @@
         update sys_menu set 
             menu_name = #{menuName,jdbcType=VARCHAR},
             parent_id = #{parentId,jdbcType=INTEGER},
+            url_path = #{urlPath,jdbcType=VARCHAR},
             icon_code = #{iconCode,jdbcType=VARCHAR},
             sort = #{sort,jdbcType=INTEGER},
             remarks = #{remarks,jdbcType=VARCHAR}
@@ -66,6 +71,9 @@
             </if>
             <if test="parentId != null and parentId != '' ">        
                 parent_id = #{parentId,jdbcType=INTEGER},                
+            </if>
+            <if test="urlPath != null and urlPath != '' ">        
+                url_path = #{urlPath,jdbcType=VARCHAR},                
             </if>
             <if test="iconCode != null and iconCode != '' ">        
                 icon_code = #{iconCode,jdbcType=VARCHAR},                
@@ -101,7 +109,7 @@
         from sys_menu
         <include refid="searchBy"/>
     </select>
-    
+        
     <select id="getMenuByUserName" parameterType="String" resultMap="BaseResultMap">
     	select *
     	from sys_menu
@@ -110,5 +118,7 @@
     <select id="getAllmenu" resultMap="BaseResultMap">
     	select *
     	from sys_menu
+    	order by parent_id,sort
     </select>
+    
 </mapper>
