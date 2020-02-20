@@ -12,7 +12,7 @@ $(function(){
 		var password=$("#password").val().trim();
 		var checkcode=$("#code-input").val().trim();
 		if(username==""){
-			layer,msg("用户名不能为空",{btn:['确定']});
+			layer.msg("用户名不能为空",{btn:['确定']});
 			return;
 		}
 		if(password==""){
@@ -28,7 +28,7 @@ $(function(){
 			success:function(data){
 				if(data.code==200){
 					layer.msg("asd")
-					window.location="/photographic-manage/manage/mainpage.do";
+					window.location="manage/mainpage.do";
 				}else{
 					
 					checkcode();

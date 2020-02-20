@@ -11,12 +11,11 @@ import com.heav.photographic.core.common.constant.PathConstant;
 
 @Scope("prototype")
 @Controller
-public class GoodsInfoController {
+public class SalesOrdersController {
+
+	@RequestMapping(value="/salesorders/orderInfo")
+	public String toOrderInfo(HttpServletRequest request,HttpServletResponse response) {
 	
-	@RequestMapping(value="/goods/manage")
-	public String GoodsInfoManage(HttpServletRequest request,HttpServletResponse response) {
-		
-		return PathConstant.GoodsManage;
-		
+		return PathConstant.OrderInfo;
 	}
 }

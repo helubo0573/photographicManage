@@ -15,7 +15,6 @@ public class MainPageController {
 	
 	@RequestMapping(value="/manage/mainpage")
 	public String toMainPage(HttpServletRequest request,HttpServletResponse response) {
-		
-		return PathConstant.Frame_Main_Page;
+		return PathConstant.FrameMainPage;
 	}
 }

@@ -11,12 +11,16 @@ import com.heav.photographic.core.common.constant.PathConstant;
 
 @Scope("prototype")
 @Controller
-public class GoodsInfoController {
+public class MemberCenterController {
+
+	@RequestMapping(value = "/member/memberdetailinfo")
+	public String toMemberDetailInfo(HttpServletRequest request,HttpServletResponse response) {
+		
+		return PathConstant.MemberDetailInfo;
+	}
 	
-	@RequestMapping(value="/goods/manage")
-	public String GoodsInfoManage(HttpServletRequest request,HttpServletResponse response) {
-		
-		return PathConstant.GoodsManage;
-		
+	@RequestMapping(value = "/member/resetpassword")
+	public String toResetPassword(HttpServletRequest request,HttpServletResponse response) {
+		return PathConstant.ResetPassword;
 	}
 }

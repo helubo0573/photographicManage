@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./css/Commons.css">
-    <link rel="stylesheet" type="text/css" href="./css/P-Login.css?v=201906042">
+    <link rel="stylesheet" type="text/css" href="./css/P-Login.css?v=20200221801">
 	<title>翰格天行影楼经营管理系统</title>
 </head>
-<body>
+<body onkeydown="keyLogin()">
 	<div class="login-box frame-box">
 		<h2>翰格天行影楼经营管理系统</h2>
 		<div class="form-horizontal login-form"> <!-- 让表单在一行中显示form-horizontal -->
@@ -39,7 +39,7 @@
                	<span>
                    	<label id="learn-lb"><input type="checkbox" name="" style="margin-bottom: 5px;" class="checkbox-inline">记住用户名</label> 
                	</span>
-               	<input type="button" value="登  录" class="btn btn-danger btn-lg">
+               	<input type="button" id="loginbt" value="登  录" class="btn btn-danger btn-lg">
 			</div>
 			<div class="form-group">
             	<div class="col-lg-12 register-info">              
@@ -61,5 +61,11 @@
 <script src="./plugins/effect.js"></script>
 <script src="./plugins/encrypt.js"></script>
 <script src="./plugins/layer/layer.js"></script>
-<script src="./js/P-Login.js?d=201906051"></script>
+<script src="./js/P-Login.js?d=2020021801"></script>
+<script type="text/javascript">
+function keyLogin(){
+ if (event.keyCode==13)  //回车键的键值为13
+   $("#loginbt").click(); //调用登录按钮的登录事件
+}
+</script>
 </html>
