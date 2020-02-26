@@ -13,10 +13,23 @@ import com.heav.photographic.core.common.constant.PathConstant;
 @Controller
 public class GoodsInfoController {
 	
-	@RequestMapping(value="/goods/manage")
-	public String GoodsInfoManage(HttpServletRequest request,HttpServletResponse response) {
+	@RequestMapping(value="/goods/goodsinfo")
+	public String toGoodsInfoManage(HttpServletRequest request,HttpServletResponse response) {
 		
 		return PathConstant.GoodsManage;
 		
 	}
+	
+	@RequestMapping(value="/goods/goodstype")
+	public String GoodsTypeManage(HttpServletRequest request,HttpServletResponse response) {
+		
+		return PathConstant.GoodsType;
+	}
+	
+	@RequestMapping(value="/goods/goodssize")
+	public String GoodsSize(HttpServletRequest resquest,HttpServletResponse response) {
+		
+		return PathConstant.GoodsSize;
+	}
+	
 }

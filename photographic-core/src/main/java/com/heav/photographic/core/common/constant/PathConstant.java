@@ -11,6 +11,8 @@ public class PathConstant {
 	public static final String OrderInfo="forward:/WEB-INF/jsp/SalesManage/SalesOrders/OrderInfo.jsp";  //订单信息管理
 	
 	/*** 产品信息管理*/
+	public static final String GoodsType="forward:/WEB-INF/jsp/GoodsManage/GoodsType/Manage.jsp";	//产品类型管理
+	public static final String GoodsSize="forward:/WEB-INF/jsp/GoodsManage/GoodsSize/Manage.jsp"; 	//产品规格管理 
 	public static final String GoodsManage="forward:/WEB-INF/jsp/GoodsManage/GoodsInfo/Manage.jsp";	//信息管理
 	
 	/*** 个人中心*/

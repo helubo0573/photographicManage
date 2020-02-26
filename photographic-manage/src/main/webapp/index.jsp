@@ -61,8 +61,11 @@
 <script src="./plugins/effect.js"></script>
 <script src="./plugins/encrypt.js"></script>
 <script src="./plugins/layer/layer.js"></script>
-<script src="./js/P-Login.js?d=2020021801"></script>
+<script src="./js/P-Login.js?d=2020022001"></script>
 <script type="text/javascript">
+$(function(){
+	if (window != top) top.location.href = location.href;
+})
 function keyLogin(){
  if (event.keyCode==13)  //回车键的键值为13
    $("#loginbt").click(); //调用登录按钮的登录事件

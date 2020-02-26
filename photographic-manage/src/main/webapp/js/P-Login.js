@@ -30,8 +30,10 @@ $(function(){
 					layer.msg("asd")
 					window.location="manage/mainpage.do";
 				}else{
-					
-					checkcode();
+					layer.msg(data.msg,{time:3000,btn:['确定']})
+					var times = (new Date()).getTime();
+					var urls="user/getimgcode.do?timestamp="+times;
+					$("#codeimg").attr("src",urls)
 				}
 			},
 			error:function(data){
@@ -39,11 +41,11 @@ $(function(){
 			}
 		})
 	})
+	function checkcode(){
+		var times = (new Date()).getTime();
+		var urls="user/getimgcode.do?timestamp="+times;
+		$("#codeimg").attr("src",urls)
+	}
 })
 
-function checkcode(){
-	var times = (new Date()).getTime();
-	var urls="user/getimgcode.do?timestamp="+times;
-	$("#codeimg").attr("src",urls)
-}
 
