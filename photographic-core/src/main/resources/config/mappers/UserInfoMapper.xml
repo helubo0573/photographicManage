@@ -10,6 +10,7 @@
         <result column="register_time" property="registerTime" jdbcType="TIMESTAMP" />
         <result column="mobile_number" property="mobileNumber" jdbcType="VARCHAR" />
         <result column="login_time" property="loginTime" jdbcType="TIMESTAMP" />
+        <result column="org_id" property="orgId" jdbcType="INTEGER" />
         <result column="is_admin" property="isAdmin" jdbcType="INTEGER" />
         <result column="state" property="state" jdbcType="INTEGER" />
     </resultMap>
@@ -40,6 +41,9 @@
             <if test="loginTime != null">
                 and login_time = #{loginTime,jdbcType=TIMESTAMP}
             </if>
+            <if test="orgId != null and orgId != '' ">
+                and org_id = #{orgId,jdbcType=INTEGER}
+            </if>
             <if test="isAdmin != null and isAdmin != '' ">
                 and is_admin = #{isAdmin,jdbcType=INTEGER}
             </if>
@@ -51,7 +55,7 @@
     
     
     <insert id="save" parameterType="com.heav.photographic.core.domain.UserInfo">
-        insert into user_info(username,password,register_time,mobile_number,login_time,is_admin,state)values(#{username,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{registerTime,jdbcType=TIMESTAMP},#{mobileNumber,jdbcType=VARCHAR},#{loginTime,jdbcType=TIMESTAMP},#{isAdmin,jdbcType=INTEGER},#{state,jdbcType=INTEGER})
+        insert into user_info(username,password,register_time,mobile_number,login_time,org_id,is_admin,state)values(#{username,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{registerTime,jdbcType=TIMESTAMP},#{mobileNumber,jdbcType=VARCHAR},#{loginTime,jdbcType=TIMESTAMP},#{orgId,jdbcType=INTEGER},#{isAdmin,jdbcType=INTEGER},#{state,jdbcType=INTEGER})
     </insert>
 
     
@@ -62,6 +66,7 @@
             register_time = #{registerTime,jdbcType=TIMESTAMP},
             mobile_number = #{mobileNumber,jdbcType=VARCHAR},
             login_time = #{loginTime,jdbcType=TIMESTAMP},
+            org_id = #{orgId,jdbcType=INTEGER},
             is_admin = #{isAdmin,jdbcType=INTEGER},
             state = #{state,jdbcType=INTEGER}
         where id = #{id ,jdbcType=INTEGER}
@@ -85,6 +90,9 @@
             </if>
             <if test="loginTime != null">
                 login_time = #{loginTime,jdbcType=TIMESTAMP},                
+            </if>
+            <if test="orgId != null and orgId != '' ">        
+                org_id = #{orgId,jdbcType=INTEGER},                
             </if>
             <if test="isAdmin != null and isAdmin != '' ">        
                 is_admin = #{isAdmin,jdbcType=INTEGER},                

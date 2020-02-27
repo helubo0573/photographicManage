@@ -4,11 +4,11 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 自动发布产品编号实体
+ * 产品类型表实体
  * 
  * @author stone
  * @version 1.0.0
- * @date 2019-05-29 11:47:20
+ * @date 2020-02-27 09:39:53
  */
  public class UserInfo implements Serializable {
 
@@ -43,6 +43,11 @@ import java.util.Date;
     * 登录时间
     */
     private Date loginTime;
+
+    /**
+    * 
+    */
+    private Integer orgId;
 
     /**
     * 否是为管理员
@@ -161,6 +166,24 @@ import java.util.Date;
     */
     public void setLoginTime(Date loginTime){
         this.loginTime = loginTime;
+    }
+
+    /**
+    * 获取
+    *
+    * @return 
+    */
+    public Integer getOrgId(){
+        return orgId;
+    }
+
+    /**
+    * 设置
+    * 
+    * @param orgId 要设置的
+    */
+    public void setOrgId(Integer orgId){
+        this.orgId = orgId;
     }
 
     /**

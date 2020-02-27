@@ -1,7 +1,7 @@
 package com.heav.photographic.core.mapper;
 
 import com.heav.photographic.core.common.mapper.BaseMapper;
-import com.heav.photographic.core.common..mapper.RDBatisDao;
+import com.heav.photographic.core.common.mapper.RDBatisDao;
 import com.heav.photographic.core.domain.OrgInfo;
 
 /**
