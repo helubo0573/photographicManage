@@ -1,11 +1,15 @@
 package com.heav.photographic.core.service.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.heav.photographic.core.common.exception.ServiceException;
 import com.heav.photographic.core.common.mapper.BaseMapper;
 import com.heav.photographic.core.common.service.impl.BaseServiceImpl;
 import com.heav.photographic.core.mapper.GoodsTypeMapper;
@@ -32,6 +36,12 @@ public class GoodsTypeServiceImpl extends BaseServiceImpl<GoodsType, Long> imple
 	@Override
 	public BaseMapper<GoodsType, Long> getMapper() {
 		return goodsTypeMapper;
+	}
+
+	@Override
+	public List<GoodsType> getTypeList(Map<String, Object> params) throws ServiceException {
+		// TODO Auto-generated method stub
+		return goodsTypeMapper.listSelective(params);
 	}
 	
 }

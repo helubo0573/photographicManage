@@ -23,7 +23,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="page-content" style="height: calc(100% - 155px);"></div>
+	<div id="page-content"></div>
 </body>
 <script type="text/javascript">
 	$("menu_a").tab();

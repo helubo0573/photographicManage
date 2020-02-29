@@ -6,13 +6,14 @@
     <resultMap id="BaseResultMap" type="com.heav.photographic.core.domain.GoodsType">
         <id column="id" property="id" jdbcType="INTEGER" />
         <result column="org_id" property="orgId" jdbcType="VARCHAR" />
-        <result column="goodstype" property="goodstype" jdbcType="VARCHAR" />
+        <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+        <result column="typename" property="typename" jdbcType="VARCHAR" />
         <result column="remarks" property="remarks" jdbcType="VARCHAR" />
     </resultMap>
     
     <!--基本的sql查询字段 公共引用...-->
     <sql id="Base_Column_List">
-        id,org_id,goodstype,remarks 
+        id,org_id,parent_id,typename,remarks 
     </sql>
     
     <!-- 基本的sql查询条件公共引用 -->
@@ -24,8 +25,11 @@
             <if test="orgId != null and orgId != '' ">
                 and org_id = #{orgId,jdbcType=VARCHAR}
             </if>
-            <if test="goodstype != null and goodstype != '' ">
-                and goodstype = #{goodstype,jdbcType=VARCHAR}
+            <if test="parentId != null and parentId != '' ">
+                and parent_id = #{parentId,jdbcType=INTEGER}
+            </if>
+            <if test="typename != null and typename != '' ">
+                and typename = #{typename,jdbcType=VARCHAR}
             </if>
             <if test="remarks != null and remarks != '' ">
                 and remarks = #{remarks,jdbcType=VARCHAR}
@@ -35,14 +39,15 @@
     
     
     <insert id="save" parameterType="com.heav.photographic.core.domain.GoodsType">
-        insert into goods_type(org_id,goodstype,remarks)values(#{orgId,jdbcType=VARCHAR},#{goodstype,jdbcType=VARCHAR},#{remarks,jdbcType=VARCHAR})
+        insert into goods_type(org_id,parent_id,typename,remarks)values(#{orgId,jdbcType=VARCHAR},#{parentId,jdbcType=INTEGER},#{typename,jdbcType=VARCHAR},#{remarks,jdbcType=VARCHAR})
     </insert>
 
     
     <update id="update" parameterType="com.heav.photographic.core.domain.GoodsType">
         update goods_type set 
             org_id = #{orgId,jdbcType=VARCHAR},
-            goodstype = #{goodstype,jdbcType=VARCHAR},
+            parent_id = #{parentId,jdbcType=INTEGER},
+            typename = #{typename,jdbcType=VARCHAR},
             remarks = #{remarks,jdbcType=VARCHAR}
         where id = #{id ,jdbcType=INTEGER}
     </update>
@@ -54,8 +59,11 @@
             <if test="orgId != null and orgId != '' ">        
                 org_id = #{orgId,jdbcType=VARCHAR},                
             </if>
-            <if test="goodstype != null and goodstype != '' ">        
-                goodstype = #{goodstype,jdbcType=VARCHAR},                
+            <if test="parentId != null and parentId != '' ">        
+                parent_id = #{parentId,jdbcType=INTEGER},                
+            </if>
+            <if test="typename != null and typename != '' ">        
+                typename = #{typename,jdbcType=VARCHAR},                
             </if>
             <if test="remarks != null and remarks != '' ">        
                 remarks = #{remarks,jdbcType=VARCHAR}                

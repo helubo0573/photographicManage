@@ -60,7 +60,7 @@
 <script src="./plugins/TweenMax.js"></script>
 <script src="./plugins/effect.js"></script>
 <script src="./plugins/encrypt.js"></script>
-<script src="./plugins/layer/layer.js"></script>
+<script src="./plugins/layui/layui.all.js"></script>
 <script src="./js/P-Login.js?d=2020022001"></script>
 <script type="text/javascript">
 $(function(){

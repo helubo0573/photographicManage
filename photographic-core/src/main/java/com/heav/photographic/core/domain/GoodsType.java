@@ -8,7 +8,7 @@ import java.util.Date;
  * 
  * @author stone
  * @version 1.0.0
- * @date 2020-02-26 10:23:11
+ * @date 2020-02-28 11:16:38
  */
  public class GoodsType implements Serializable {
 
@@ -25,9 +25,14 @@ import java.util.Date;
     private String orgId;
 
     /**
+    * 
+    */
+    private Integer parentId;
+
+    /**
     * 产品类型名称
     */
-    private String goodstype;
+    private String typename;
 
     /**
     * 备注
@@ -72,21 +77,39 @@ import java.util.Date;
     }
 
     /**
+    * 获取
+    *
+    * @return 
+    */
+    public Integer getParentId(){
+        return parentId;
+    }
+
+    /**
+    * 设置
+    * 
+    * @param parentId 要设置的
+    */
+    public void setParentId(Integer parentId){
+        this.parentId = parentId;
+    }
+
+    /**
     * 获取产品类型名称
     *
     * @return 产品类型名称
     */
-    public String getGoodstype(){
-        return goodstype;
+    public String getTypename(){
+        return typename;
     }
 
     /**
     * 设置产品类型名称
     * 
-    * @param goodstype 要设置的产品类型名称
+    * @param typename 要设置的产品类型名称
     */
-    public void setGoodstype(String goodstype){
-        this.goodstype = goodstype;
+    public void setTypename(String typename){
+        this.typename = typename;
     }
 
     /**

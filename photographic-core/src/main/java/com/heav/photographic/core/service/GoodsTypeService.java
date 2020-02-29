@@ -1,5 +1,9 @@
 package com.heav.photographic.core.service;
 
+import java.util.List;
+import java.util.Map;
+
+import com.heav.photographic.core.common.exception.ServiceException;
 import com.heav.photographic.core.common.service.BaseService;
 import com.heav.photographic.core.domain.GoodsType;
 
@@ -12,4 +16,5 @@ import com.heav.photographic.core.domain.GoodsType;
  */
 public interface GoodsTypeService extends BaseService<GoodsType, Long>{
 
+	List<GoodsType> getTypeList(Map<String, Object> params) throws ServiceException;
 }

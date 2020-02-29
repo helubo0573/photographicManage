@@ -29,16 +29,15 @@ public class Tree
 	public static List<TreeObject> TreeList(List<?> list, String primaryKey, String textKey, String parentKey)
 	{
 		Map<String, TreeObject> mapping = new TreeMap<String, TreeObject>();
-		for (Object object : list)
-		{
+		for (Object object : list){
 			TreeObject treeObject = new TreeObject();
 			treeObject.value = getObjectKeyValue(object, primaryKey).toString();
 			treeObject.parent = getObjectKeyValue(object, parentKey).toString();
 			treeObject.label = "" + getObjectKeyValue(object, textKey);
 			mapping.put(treeObject.value + "", treeObject);
 		}
-		for (TreeObject treeObject : mapping.values())
-		{
+		
+		for (TreeObject treeObject : mapping.values()){
 			TreeObject parentObject = mapping.get(treeObject.parent + "");
 			if (parentObject != null)
 			{
@@ -50,12 +49,11 @@ public class Tree
 				parentObject.children.add(treeObject);
 			}
 		}
+		
 		List<TreeObject> treeList = new ArrayList<TreeObject>();
-		for (TreeObject treeObject : mapping.values())
-		{
+		for (TreeObject treeObject : mapping.values()){
 			TreeObject parentObject = mapping.get(treeObject.parent + "");
-			if (parentObject == null)
-			{
+			if (parentObject == null){
 				treeList.add(treeObject);
 			}
 		}
@@ -70,47 +68,35 @@ public class Tree
 	}
 
 	@SuppressWarnings("rawtypes")
-	public static Object getObjectKeyValue(Object object, String key)
-	{
+	public static Object getObjectKeyValue(Object object, String key){
 		if (object instanceof Map)
 			return ((Map) object).get(key);
-		else
-		{
+		else{
 			Field[] fields = object.getClass().getDeclaredFields();
-			for (Field field : fields)
-			{
+			for (Field field : fields){
 				field.setAccessible(true);
-				if (field.getName().equals(key))
-				{
+				if (field.getName().equals(key)){
 					Object value = null;
-					try
-					{
+					try{
 						value = field.get(object);
-					} catch (Exception e)
-					{
+					} catch (Exception e){
 						logger.error(e);
 					}
-					if (value != null)
-						return value;
+					if (value != null) return value;
 				}
 			}
 			String getMethodName = "get" + ForMat(key);
 			Method method = null;
-			try
-			{
+			try{
 				method = object.getClass().getMethod(getMethodName);
-			} catch (Exception e)
-			{
+			} catch (Exception e){
 				logger.error(e);
 			}
-			if (method != null)
-			{
+			if (method != null){
 				Object value = null;
-				try
-				{
+				try{
 					value = method.invoke(object);
-				} catch (Exception e)
-				{
+				} catch (Exception e){
 					logger.error(e);
 				}
 				return value;
