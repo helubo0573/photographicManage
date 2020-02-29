@@ -27,7 +27,7 @@ $(function(){
 			data:"username="+username+"&password="+hex_md5(password)+"&checkcode="+checkcode,
 			success:function(data){
 				if(data.code==200){
-					layer.msg("asd")
+					layer.msg(data.msg)
 					window.location="manage/mainpage.do";
 				}else{
 					layer.msg(data.msg,{time:3000,btn:['确定']})

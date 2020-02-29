@@ -61,7 +61,7 @@
 <script src="./plugins/effect.js"></script>
 <script src="./plugins/encrypt.js"></script>
 <script src="./plugins/layui/layui.all.js"></script>
-<script src="./js/P-Login.js?d=2020022001"></script>
+<script src="./js/P-Login.js?d=202002291"></script>
 <script type="text/javascript">
 $(function(){
 	if (window != top) top.location.href = location.href;
