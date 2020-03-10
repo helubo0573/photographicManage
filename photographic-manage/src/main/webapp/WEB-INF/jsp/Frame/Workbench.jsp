@@ -4,28 +4,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<style type="text/css">
-</style>
 </head>
-<script type="text/javascript" src="${pageContext.request.contextPath}/plugins/tab.js?d=202002091"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/plugins/tab.js?d=202003015"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/Workbench.css?d=202003082">
 <body>
-	<div id="page-tab">
-		<nav id="page-tab-content">
-			<div id="menu-list">
-				<a>主页</a>
-			</div>
-		</nav>
-		<div id="page-operation">
-			<div id="menu-all">
-				<ul id="menu-all-ul">
-					<li>主页</li>
-				</ul>
-			</div>
+	<div class="layui-tab" lay-filter="tab-content" lay-allowclose="true">
+		<ul id="tab-ul" class="layui-tab-title" style="margin-bottom: 0px;">
+		</ul>
+		<div class="layui-tab-content">
 		</div>
 	</div>
-	<div id="page-content"></div>
 </body>
 <script type="text/javascript">
-	$("menu_a").tab();
+	//$("menu_a").tab();
 </script>
 </html>

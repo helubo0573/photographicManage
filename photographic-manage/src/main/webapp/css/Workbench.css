@@ -1,12 +1,11 @@
 @charset "UTF-8";
 .body-sdiv{	width: 60%;text-align: center;padding:30px;}
 .body-bdiv{ }
-.body-sdiv,.body-bdiv{
-	background: rgb(248,248,248,0.4)
-}
+.body-sdiv,.body-bdiv{	background: rgb(248,248,248,0.4)}
 .title-div{	font-weight:bold;font-size:18px;text-align: center;border-bottom: 2px solid;width: 50%;margin-left: 25%;margin-bottom: 20px;}
-
-.btn-div{
-	margin-top: 20px;
-	text-align: center;
+.info-div{
+	
 }
+.layui-nav{cursor: pointer;}
+.btn-div{	margin-top: 20px;	text-align: center;}
+.btn-success{	margin-right: 20px;}

@@ -14,9 +14,6 @@
 	border:3px solid #00ce00;
 }
 
-button {
-	opacity: 0.6;
-}
 #page-tab,#page-tab *{margin:0;padding:0;-webkit-font-smoothing:antialiased}
 #page-tab,#page-tab #page-tab-content,#page-tab .tab-btn,#page-tab #page-operation,#page-tab #menu-list,#page-tab #menu-list a{height:30px;line-height:30px}
 #page-tab{width:100%;border-bottom:2px solid;position:relative;line-height:30px}

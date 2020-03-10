@@ -10,8 +10,8 @@ body{
 	.body-div{
 		width:1200px;
 	}
-	.workbench-div{
-		width: 982px;
+ 	.workbench-div{
+		width: 957px;
 	}
 }
 @media screen and (min-width: 1440px) {
@@ -19,7 +19,7 @@ body{
 		width:1440px;
 	}
 	.workbench-div{
-		width: 1222px;
+		width: 1197px;
 	}
 }
 .body-div{
@@ -68,14 +68,15 @@ body{
 	position: absolute;top:58px;bottom: 10px;
 }
 .sider-div{
-	width: 188px;
+	width: 212px;
 	float:left;
 	height: 100%;
 	padding: 5px;
 }
 .workbench-div{
-	margin-left: 198px;
+	margin-left: 223px;
 	height: 100%;
+	right: 10px;
 }
 .page-content{height: calc(100% - 155px);padding:20px;}
 .custom{
