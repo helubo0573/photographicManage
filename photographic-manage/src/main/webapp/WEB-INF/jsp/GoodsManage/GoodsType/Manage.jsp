@@ -14,6 +14,7 @@
 }
 </style>
 </head>
+<script type="text/javascript" src="../js/GoodsManage.js?d=202003122"></script>
 <body>
 	<div class="body-sdiv">
 		<div class="title-div">
