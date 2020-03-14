@@ -7,10 +7,10 @@ Source Host           : localhost:3306
 Source Database       : photographic
 
 Target Server Type    : MYSQL
-Target Server Version : 50528
+Target Server Version : 50099
 File Encoding         : 65001
 
-Date: 2020-03-01 10:16:04
+Date: 2020-03-14 17:20:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -118,19 +118,7 @@ CREATE TABLE `sys_menu` (
 -- ----------------------------
 -- Records of sys_menu
 -- ----------------------------
-INSERT INTO `sys_menu` VALUES ('1', '个人中心', '0', null, 'MemberCenter', '4', '');
-INSERT INTO `sys_menu` VALUES ('2', '个人详细信息', '1', '/member/memberdetailinfo.do', 'DetailInfo', '1', '');
-INSERT INTO `sys_menu` VALUES ('4', '密码重置', '1', '/member/resetpassword.do', 'ResetPd', '4', '');
-INSERT INTO `sys_menu` VALUES ('7', '产品管理', '0', null, 'GoodsManage', '3', '');
-INSERT INTO `sys_menu` VALUES ('8', '产品信息管理', '7', '/goods/goodsinfo.do', 'GoodsInfo', '3', '');
-INSERT INTO `sys_menu` VALUES ('9', '销售单管理', '0', null, 'SalesOrders', '1', '');
-INSERT INTO `sys_menu` VALUES ('10', '订单信息', '9', '/salesorders/orderInfo.do', 'OrderInfo', '2', '');
-INSERT INTO `sys_menu` VALUES ('11', '产品类型管理', '7', '/goods/goodstype.do', 'GoodsType', '1', '');
-INSERT INTO `sys_menu` VALUES ('12', '产品规格管理', '7', '/goods/goodssize.do', 'GoodsSize', '2', '');
-INSERT INTO `sys_menu` VALUES ('13', '新增订单', '9', '/salesorders/neworder.do', 'NewOrder', '1', '');
-INSERT INTO `sys_menu` VALUES ('14', '服务流程管控', '0', null, 'PGQA', '2', '');
-INSERT INTO `sys_menu` VALUES ('15', '摄控管理', '14', '/pgqa/casemanage.do', 'CaseManage', '1', '');
-INSERT INTO `sys_menu` VALUES ('16', '服务进度管理', '14', '/pgqa/processmanage.do', 'ProcessManage', '2', '');
+INSERT INTO `sys_menu` VALUES ('1', '个人中心', '0', null, 'MemberCenter', '4', ''), ('2', '个人详细信息', '1', '/member/memberdetailinfo.do', 'DetailInfo', '1', ''), ('4', '密码重置', '1', '/member/resetpassword.do', 'ResetPd', '4', ''), ('7', '产品管理', '0', null, 'GoodsManage', '3', ''), ('8', '产品信息管理', '7', '/goods/goodsinfo.do', 'GoodsInfo', '3', ''), ('9', '销售单管理', '0', null, 'SalesOrders', '1', ''), ('10', '订单信息', '9', '/salesorders/orderInfo.do', 'OrderInfo', '2', ''), ('11', '产品类型管理', '7', '/goods/goodstype.do', 'GoodsType', '1', ''), ('12', '产品规格管理', '7', '/goods/goodssize.do', 'GoodsSize', '2', ''), ('13', '新增订单', '9', '/salesorders/neworder.do', 'NewOrder', '1', ''), ('14', '服务流程管控', '0', null, 'PGQA', '2', ''), ('15', '摄控管理', '14', '/pgqa/casemanage.do', 'CaseManage', '1', ''), ('16', '服务进度管理', '14', '/pgqa/processmanage.do', 'ProcessManage', '2', '');
 
 -- ----------------------------
 -- Table structure for `sys_perm`
