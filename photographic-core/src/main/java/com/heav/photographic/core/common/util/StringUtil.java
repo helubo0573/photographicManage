@@ -464,4 +464,15 @@ public final class StringUtil extends tool.util.StringUtil
 		return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
 	}
 
+	/**
+	 * 将字符串的第一个字母转换为大写
+	 * @param string
+	 * @return
+	 */
+	public static String ForMat(String string)
+	{
+		if (string == null || "".equals(string))
+			return string;
+		return string.substring(0, 1).toUpperCase() + string.substring(1);
+	}
 }

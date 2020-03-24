@@ -43,7 +43,7 @@ body{
 	margin: 0px 5px;
 }
 #quit-a{
-	border:1px solid hsla(0,0%,90%,.5);;
+	border:1px solid hsla(0,0%,90%,.5);
 	cursor:pointer;
 	background: url(../static/img/main_link_ico.png) no-repeat;
 	background-position:5px -100px;

@@ -43,5 +43,10 @@ public class GoodsTypeServiceImpl extends BaseServiceImpl<GoodsType, Long> imple
 		// TODO Auto-generated method stub
 		return goodsTypeMapper.listSelective(params);
 	}
+
+	@Override
+	public List<GoodsType> getParentByOrg(int orgId) {
+		return goodsTypeMapper.getParentByOrg(orgId);
+	}
 	
 }

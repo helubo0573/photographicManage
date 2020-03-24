@@ -8,7 +8,7 @@ import java.util.Date;
  * 
  * @author stone
  * @version 1.0.0
- * @date 2020-02-26 10:33:50
+ * @date 2020-03-16 15:30:40
  */
  public class OrgInfo implements Serializable {
 
@@ -22,10 +22,15 @@ import java.util.Date;
     /**
     * 
     */
+    private String orgCode;
+
+    /**
+    * 机构名称
+    */
     private String orgName;
 
     /**
-    * 
+    * 所在地
     */
     private String orgAddress;
 
@@ -73,32 +78,50 @@ import java.util.Date;
     *
     * @return 
     */
-    public String getOrgName(){
-        return orgName;
+    public String getOrgCode(){
+        return orgCode;
     }
 
     /**
     * 设置
     * 
-    * @param orgName 要设置的
+    * @param orgCode 要设置的
+    */
+    public void setOrgCode(String orgCode){
+        this.orgCode = orgCode;
+    }
+
+    /**
+    * 获取机构名称
+    *
+    * @return 机构名称
+    */
+    public String getOrgName(){
+        return orgName;
+    }
+
+    /**
+    * 设置机构名称
+    * 
+    * @param orgName 要设置的机构名称
     */
     public void setOrgName(String orgName){
         this.orgName = orgName;
     }
 
     /**
-    * 获取
+    * 获取所在地
     *
-    * @return 
+    * @return 所在地
     */
     public String getOrgAddress(){
         return orgAddress;
     }
 
     /**
-    * 设置
+    * 设置所在地
     * 
-    * @param orgAddress 要设置的
+    * @param orgAddress 要设置的所在地
     */
     public void setOrgAddress(String orgAddress){
         this.orgAddress = orgAddress;

@@ -17,4 +17,6 @@ import com.heav.photographic.core.domain.GoodsType;
 public interface GoodsTypeService extends BaseService<GoodsType, Long>{
 
 	List<GoodsType> getTypeList(Map<String, Object> params) throws ServiceException;
+	
+	List<GoodsType> getParentByOrg(int integer);
 }

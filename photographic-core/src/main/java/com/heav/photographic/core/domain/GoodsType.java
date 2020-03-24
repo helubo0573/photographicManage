@@ -8,7 +8,7 @@ import java.util.Date;
  * 
  * @author stone
  * @version 1.0.0
- * @date 2020-02-28 11:16:38
+ * @date 2020-03-16 15:30:13
  */
  public class GoodsType implements Serializable {
 
@@ -22,7 +22,7 @@ import java.util.Date;
     /**
     * 机构id
     */
-    private String orgId;
+    private Integer orgId;
 
     /**
     * 
@@ -63,7 +63,7 @@ import java.util.Date;
     *
     * @return 机构id
     */
-    public String getOrgId(){
+    public Integer getOrgId(){
         return orgId;
     }
 
@@ -72,7 +72,7 @@ import java.util.Date;
     * 
     * @param orgId 要设置的机构id
     */
-    public void setOrgId(String orgId){
+    public void setOrgId(Integer orgId){
         this.orgId = orgId;
     }
 

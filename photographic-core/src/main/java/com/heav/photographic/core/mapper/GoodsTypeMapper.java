@@ -1,5 +1,7 @@
 package com.heav.photographic.core.mapper;
 
+import java.util.List;
+
 import com.heav.photographic.core.common.mapper.BaseMapper;
 import com.heav.photographic.core.common.mapper.RDBatisDao;
 import com.heav.photographic.core.domain.GoodsType;
@@ -14,6 +16,6 @@ import com.heav.photographic.core.domain.GoodsType;
 @RDBatisDao
 public interface GoodsTypeMapper extends BaseMapper<GoodsType, Long> {
 
-    
+    List<GoodsType> getParentByOrg(int orgId);
 
 }

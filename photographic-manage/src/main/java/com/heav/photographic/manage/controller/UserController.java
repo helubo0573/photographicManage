@@ -164,7 +164,7 @@ public class UserController extends BaseController{
 	@RequestMapping(value="user/getmenu")
 	public void getUserMenu(HttpServletResponse response, HttpServletRequest request) throws UnsupportedEncodingException, IOException {
 		UserInfo user=(UserInfo) request.getSession().getAttribute("SysUser");
-		System.out.println(user.getUsername());
+		System.out.println(user.getUsername()+"-----"+user.getOrgId());
 		List<SysMenu> menu=userInfoService.getMenuByUserName(user.getUsername());
 		request.setAttribute("usermenu", menu);
 		ServletUtils.writeToResponse(response, menu);

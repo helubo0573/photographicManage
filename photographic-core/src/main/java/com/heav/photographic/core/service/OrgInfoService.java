@@ -8,7 +8,7 @@ import com.heav.photographic.core.domain.OrgInfo;
  * 
  * @author stone
  * @version 1.0.0
- * @date 2020-02-26 10:33:50
+ * @date 2020-03-16 15:23:04
  */
 public interface OrgInfoService extends BaseService<OrgInfo, Long>{
 

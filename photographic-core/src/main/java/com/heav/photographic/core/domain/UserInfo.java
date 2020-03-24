@@ -8,7 +8,7 @@ import java.util.Date;
  * 
  * @author stone
  * @version 1.0.0
- * @date 2020-02-27 09:39:53
+ * @date 2020-03-16 15:24:25
  */
  public class UserInfo implements Serializable {
 

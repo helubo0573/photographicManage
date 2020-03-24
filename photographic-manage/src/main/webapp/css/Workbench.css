@@ -9,3 +9,4 @@
 .layui-nav{cursor: pointer;}
 .btn-div{	margin-top: 20px;	text-align: center;}
 .btn{	margin-right: 10px;}
+.boxshow:hover{	cursor: pointer;box-shadow: 0 0 10px #FFFFFF;}

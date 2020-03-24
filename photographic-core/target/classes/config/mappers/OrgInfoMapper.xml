@@ -4,7 +4,8 @@
 <mapper namespace="com.heav.photographic.core.mapper.OrgInfoMapper">
     <!--返回Map-->        
     <resultMap id="BaseResultMap" type="com.heav.photographic.core.domain.OrgInfo">
-        <id column="id" property="id" jdbcType="VARCHAR" />
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="org_code" property="orgCode" jdbcType="VARCHAR" />
         <result column="org_name" property="orgName" jdbcType="VARCHAR" />
         <result column="org_address" property="orgAddress" jdbcType="VARCHAR" />
         <result column="site" property="site" jdbcType="VARCHAR" />
@@ -15,14 +16,17 @@
     
     <!--基本的sql查询字段 公共引用...-->
     <sql id="Base_Column_List">
-        id,org_name,org_address,site,range,create_time,create_user 
+        id,org_code,org_name,org_address,site,range,create_time,create_user 
     </sql>
     
     <!-- 基本的sql查询条件公共引用 -->
     <sql id="searchBy">
         <trim prefix="where" prefixOverrides="and|or">
             <if test=" id != null and id != '' ">
-                id  = #{id,jdbcType=VARCHAR}
+                id  = #{id,jdbcType=INTEGER}
+            </if>
+            <if test="orgCode != null and orgCode != '' ">
+                and org_code = #{orgCode,jdbcType=VARCHAR}
             </if>
             <if test="orgName != null and orgName != '' ">
                 and org_name = #{orgName,jdbcType=VARCHAR}
@@ -47,12 +51,13 @@
     
     
     <insert id="save" parameterType="com.heav.photographic.core.domain.OrgInfo">
-        insert into org_info(org_name,org_address,site,range,create_time,create_user)values(#{orgName,jdbcType=VARCHAR},#{orgAddress,jdbcType=VARCHAR},#{site,jdbcType=VARCHAR},#{range,jdbcType=VARCHAR},#{createTime,jdbcType=TIMESTAMP},#{createUser,jdbcType=INTEGER})
+        insert into org_info(org_code,org_name,org_address,site,range,create_time,create_user)values(#{orgCode,jdbcType=VARCHAR},#{orgName,jdbcType=VARCHAR},#{orgAddress,jdbcType=VARCHAR},#{site,jdbcType=VARCHAR},#{range,jdbcType=VARCHAR},#{createTime,jdbcType=TIMESTAMP},#{createUser,jdbcType=INTEGER})
     </insert>
 
     
     <update id="update" parameterType="com.heav.photographic.core.domain.OrgInfo">
         update org_info set 
+            org_code = #{orgCode,jdbcType=VARCHAR},
             org_name = #{orgName,jdbcType=VARCHAR},
             org_address = #{orgAddress,jdbcType=VARCHAR},
             site = #{site,jdbcType=VARCHAR},
@@ -66,6 +71,9 @@
     <update id="updateSelective"  parameterType="java.util.HashMap">
         update org_info
           <set>
+            <if test="orgCode != null and orgCode != '' ">        
+                org_code = #{orgCode,jdbcType=VARCHAR},                
+            </if>
             <if test="orgName != null and orgName != '' ">        
                 org_name = #{orgName,jdbcType=VARCHAR},                
             </if>

@@ -60,6 +60,7 @@ $(document).ready(function(){
 									        id: id //实际使用一般是规定好的id，这里以时间戳模拟下
 									    })
 									    element.tabChange('tab-content', id);
+										$("#templdiv").html("")
 									 })
 								}
 							}

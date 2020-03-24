@@ -18,30 +18,39 @@ public class Tree
 
 	static class TreeObject
 	{
-		public Object value;
+		public Object id;
 		public Object parent;
-		public String label;
-		public Boolean leaf = true;
-		public Boolean expanded = true;
+		public String title;
+		public String remarks;
+//		public Boolean leaf = true;
+//		public Boolean expanded = true;
 		public List<TreeObject> children = null;// new ArrayList();
 	}
 
-	public static List<TreeObject> TreeList(List<?> list, String primaryKey, String textKey, String parentKey)
+	public static List<TreeObject> TreeList(List<?> list, String primaryKey, String textKey, String parentKey,String remarks)
 	{
 		Map<String, TreeObject> mapping = new TreeMap<String, TreeObject>();
+		List<TreeObject> treelist=new ArrayList<>();
+		
 		for (Object object : list){
 			TreeObject treeObject = new TreeObject();
-			treeObject.value = getObjectKeyValue(object, primaryKey).toString();
+			treeObject.id = getObjectKeyValue(object, primaryKey).toString();
 			treeObject.parent = getObjectKeyValue(object, parentKey).toString();
-			treeObject.label = "" + getObjectKeyValue(object, textKey);
-			mapping.put(treeObject.value + "", treeObject);
+			treeObject.title = "" + getObjectKeyValue(object, textKey);
+			treeObject.remarks="" +	getObjectKeyValue(object, remarks);
+			mapping.put(treeObject.id + "", treeObject);
+			treelist.add(treeObject);
 		}
-		
+		JSONObject json=new JSONObject();
+		for(TreeObject tree:treelist) {
+			String jsonStr = JSONObject.toJSONString(tree);
+			System.out.println(jsonStr);
+		}
 		for (TreeObject treeObject : mapping.values()){
 			TreeObject parentObject = mapping.get(treeObject.parent + "");
 			if (parentObject != null)
 			{
-				parentObject.leaf = false;
+//				parentObject.leaf = false;
 				if (parentObject.children == null)
 				{
 					parentObject.children = new ArrayList<Tree.TreeObject>();
@@ -62,53 +71,27 @@ public class Tree
 	}
 
 	@SuppressWarnings("rawtypes")
-	public static String TreeJson(List list, String primaryKey, String textKey, String parentKey)
+	public static String TreeJson(List list, String primaryKey, String textKey, String parentKey,String remarks)
 	{
-		return JSONObject.toJSONString(Tree.TreeList(list, primaryKey, textKey, parentKey)).toString();
+		return JSONObject.toJSONString(Tree.TreeList(list, primaryKey, textKey, parentKey, remarks)).toString();
 	}
 
+	/**
+	 * 遍历object，找到设置的key的值
+	 * @param object	对象
+	 * @param key		对象属性
+	 * @return			值
+	 */
 	@SuppressWarnings("rawtypes")
 	public static Object getObjectKeyValue(Object object, String key){
-		if (object instanceof Map)
+		Object value = null;
+		if (object instanceof Map) {
 			return ((Map) object).get(key);
-		else{
-			Field[] fields = object.getClass().getDeclaredFields();
-			for (Field field : fields){
-				field.setAccessible(true);
-				if (field.getName().equals(key)){
-					Object value = null;
-					try{
-						value = field.get(object);
-					} catch (Exception e){
-						logger.error(e);
-					}
-					if (value != null) return value;
-				}
-			}
-			String getMethodName = "get" + ForMat(key);
-			Method method = null;
-			try{
-				method = object.getClass().getMethod(getMethodName);
-			} catch (Exception e){
-				logger.error(e);
-			}
-			if (method != null){
-				Object value = null;
-				try{
-					value = method.invoke(object);
-				} catch (Exception e){
-					logger.error(e);
-				}
-				return value;
-			}
+		}else{
+			value=ObjectValueByKey.ValueByMethod(object, key);
+			if(value!=null) return value;
+			value=ObjectValueByKey.ValueByField(object, key);
 		}
-		return null;
-	}
-
-	private static String ForMat(String string)
-	{
-		if (string == null || "".equals(string))
-			return string;
-		return string.substring(0, 1).toUpperCase() + string.substring(1);
+		return value;
 	}
 }

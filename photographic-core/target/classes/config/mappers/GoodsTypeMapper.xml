@@ -5,7 +5,7 @@
     <!--返回Map-->        
     <resultMap id="BaseResultMap" type="com.heav.photographic.core.domain.GoodsType">
         <id column="id" property="id" jdbcType="INTEGER" />
-        <result column="org_id" property="orgId" jdbcType="VARCHAR" />
+        <result column="org_id" property="orgId" jdbcType="INTEGER" />
         <result column="parent_id" property="parentId" jdbcType="INTEGER" />
         <result column="typename" property="typename" jdbcType="VARCHAR" />
         <result column="remarks" property="remarks" jdbcType="VARCHAR" />
@@ -23,7 +23,7 @@
                 id  = #{id,jdbcType=INTEGER}
             </if>
             <if test="orgId != null and orgId != '' ">
-                and org_id = #{orgId,jdbcType=VARCHAR}
+                and org_id = #{orgId,jdbcType=INTEGER}
             </if>
             <if test="parentId != null and parentId != '' ">
                 and parent_id = #{parentId,jdbcType=INTEGER}
@@ -39,13 +39,13 @@
     
     
     <insert id="save" parameterType="com.heav.photographic.core.domain.GoodsType">
-        insert into goods_type(org_id,parent_id,typename,remarks)values(#{orgId,jdbcType=VARCHAR},#{parentId,jdbcType=INTEGER},#{typename,jdbcType=VARCHAR},#{remarks,jdbcType=VARCHAR})
+        insert into goods_type(org_id,parent_id,typename,remarks)values(#{orgId,jdbcType=INTEGER},#{parentId,jdbcType=INTEGER},#{typename,jdbcType=VARCHAR},#{remarks,jdbcType=VARCHAR})
     </insert>
 
     
     <update id="update" parameterType="com.heav.photographic.core.domain.GoodsType">
         update goods_type set 
-            org_id = #{orgId,jdbcType=VARCHAR},
+            org_id = #{orgId,jdbcType=INTEGER},
             parent_id = #{parentId,jdbcType=INTEGER},
             typename = #{typename,jdbcType=VARCHAR},
             remarks = #{remarks,jdbcType=VARCHAR}
@@ -57,7 +57,7 @@
         update goods_type
           <set>
             <if test="orgId != null and orgId != '' ">        
-                org_id = #{orgId,jdbcType=VARCHAR},                
+                org_id = #{orgId,jdbcType=INTEGER},                
             </if>
             <if test="parentId != null and parentId != '' ">        
                 parent_id = #{parentId,jdbcType=INTEGER},                
@@ -94,4 +94,10 @@
         <include refid="searchBy"/>
     </select>
     
+    <select id="getParentByOrg"  resultMap="BaseResultMap" parameterType="INTEGER">
+    	select
+    	<include refid="Base_Column_List"/>
+    	from goods_type
+    	where org_id = #{orgId,jdbcType=INTEGER} and parent_id = -1
+    </select>
 </mapper>
