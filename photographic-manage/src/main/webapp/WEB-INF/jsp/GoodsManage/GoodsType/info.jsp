@@ -43,8 +43,8 @@
 		</div>
 		<div id="goodstype-btn" class="btn-div">
 			<button id="insert-btn" class="btn btn-success" onclick="NewGoodsType()">新增</button>
-			<button id="update-btn" class="btn btn-info" onclick="UpdateGoodsType()">修改</button>
-			<button id="delete-btn" class="btn btn-danger" onclick="DeleteGoodsType()">删除</button>
+			<button id="update-btn" class="btn btn-info" onclick="UpdateGoodsType()" disabled="disabled">修改</button>
+			<button id="delete-btn" class="btn btn-danger" onclick="DeleteGoodsType()" disabled="disabled">删除</button>
 			<button id="reset-btn" class="btn btn-warning" onclick="ResetGoodsType()">重置</button>
 		</div>
 	</div>

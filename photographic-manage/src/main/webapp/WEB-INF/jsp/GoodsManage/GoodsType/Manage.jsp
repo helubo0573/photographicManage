@@ -14,7 +14,7 @@
 }
 </style>
 </head>
-<script type="text/javascript" src="../js/GoodsManage.js?d=202003222"></script>
+<script type="text/javascript" src="../js/GoodsManage.js?d=202003263"></script>
 <body>
 	<div class="body-sdiv">
 		<div class="title-div">

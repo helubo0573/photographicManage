@@ -68,7 +68,8 @@ public class CheckBoxTree
 	@SuppressWarnings("rawtypes")
 	public static String TreeJson(List list, String primaryKey, String textKey, String parentKey)
 	{
-		return com.alibaba.fastjson.JSONObject.toJSONString(Tree.TreeList(list, primaryKey, textKey, parentKey)).toString();
+		//return com.alibaba.fastjson.JSONObject.toJSONString(Tree.TreeList(list, primaryKey, textKey, parentKey)).toString();
+		return null;
 	}
 
 	@SuppressWarnings("rawtypes")

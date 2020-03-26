@@ -39,6 +39,22 @@ function CheckTypeInfo(){
 	}
 	return true;
 }
+
+/**
+ * 点击获得类型信息
+ * @param id
+ * @param pid
+ * @param typename
+ * @param remarks
+ * @returns
+ */
+function clickinfo(pid,id,typename,remarks){
+	$("#goodstype-info #ftype").val(pid)
+	$("#goodstype-info #typeid").val(id);
+	$("#goodstype-info #typename").val(typename);
+	$("#goodstype-info #typeremarks").val(remarks);
+	UpdateBtnState();
+}
 /**
  * 
  * @returns
@@ -51,16 +67,16 @@ function CreateGoodsTypeData(){
 	return "typeid="+typeid+"&parentid="+parentid+"&typename="+typename+"&remarks="+remarks;
 }
 function Changestate(){
+	$("#goodstype-info #ftype").val("-1");
 	$("#goodstype-btn > .btn").attr('disabled', true);
 }
 function InsertBtnState(){
-	createGoodsTypeData();
-	changestate();
+	Changestate();
 	$("#goodstype-btn > #insert-btn").attr('disabled', false);
 	$("#goodstype-btn > #reset-btn").attr('disabled', false);
 }
 function UpdateBtnState(){
-	changestate();
+	Changestate();
 	$("#goodstype-btn > #update-btn").attr('disabled', false);
 	$("#goodstype-btn > #delete-btn").attr('disabled', false);
 	$("#goodstype-btn > #reset-btn").attr('disabled', false);
@@ -79,7 +95,10 @@ function getGoodsTypeTree(e){
 			layui.use('tree', function(){
 				layui.tree.render({
 				elem: e,
-				data:JSON.parse(data.typetree)
+				data:JSON.parse(data.typetree),
+				click: function(obj){
+					clickinfo(obj.data.parent,obj.data.id,obj.data.title,obj.data.remarks)
+					}
 				})
 			})
 		}
