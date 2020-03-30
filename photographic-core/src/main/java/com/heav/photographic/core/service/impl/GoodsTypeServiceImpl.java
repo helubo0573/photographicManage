@@ -48,5 +48,10 @@ public class GoodsTypeServiceImpl extends BaseServiceImpl<GoodsType, Long> imple
 	public List<GoodsType> getParentByOrg(int orgId) {
 		return goodsTypeMapper.getParentByOrg(orgId);
 	}
+
+	@Override
+	public int deleteGoodeType(int id) {
+		return goodsTypeMapper.deleteGoodsType(id);
+	}
 	
 }

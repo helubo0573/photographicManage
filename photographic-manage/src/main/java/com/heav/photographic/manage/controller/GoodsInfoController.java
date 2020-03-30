@@ -78,6 +78,24 @@ public class GoodsInfoController {
 		}
 		ServletUtils.writeToResponse(response, res);
 	}
+	@RequestMapping(value="/goods/deletegoodstype")
+	public void deleteGoodsType(HttpServletRequest request,HttpServletResponse response,@RequestParam(value = "delid")String typeid) {
+		int n=goodsservice.deleteGoodeType(Integer.parseInt(typeid));
+		Map<String, Object> res = new HashMap<String, Object>();
+		if (n < 0)
+		{
+			res.put(Constant.RESPONSE_CODE, Constant.FAIL_CODE_VALUE);
+			res.put(Constant.RESPONSE_CODE_MSG, "删除失败");
+		} else
+		{
+			res.put(Constant.RESPONSE_CODE, Constant.SUCCEED_CODE_VALUE);
+			res.put(Constant.RESPONSE_CODE_MSG, "删除成功");
+
+		}
+		ServletUtils.writeToResponse(response, res);
+	}
+	
+	
 	
 	@RequestMapping(value="/goods/goodssize")
 	public String toGoodsSize(HttpServletRequest request,HttpServletResponse response) {
@@ -127,4 +145,5 @@ public class GoodsInfoController {
 		}
 		ServletUtils.writeToResponse(response, res);
 	}
+	
 }

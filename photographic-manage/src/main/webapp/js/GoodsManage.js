@@ -14,16 +14,36 @@ function NewGoodsType(){
 				if(data.code==200){
 					layer.msg(data.msg);
 					ResetGoodsType();
+					reLoadData();
 				}
 			}
 		})
 	}
 }
 function UpdateGoodsType(){
-	
+	$("#goodstype-info #ftype").val(1)
 }
 function DeleteGoodsType(){
-	
+	var delid=$("#goodstype-info #typeid").val();
+	layer.confirm("是否删除产品类型:"+$("#goodstype-info #typename").val()+"?",{
+		btn:["是","否"],
+		btn1:function(){
+			$.ajax({
+				contenType:'application/json',
+				Type:'POST',
+				dataType:'json',
+				url:"../goods/deletegoodstype.do",
+				data:"delid="+delid,
+				success:function(data){
+					if(data.code==200){
+						layer.msg(data.msg)
+						ResetGoodsType();
+						reLoadData();
+					}
+				}
+			})			
+		}
+	})
 }
 function ResetGoodsType(){
 	$("#goodstype-info #typeid").val("");
@@ -49,11 +69,11 @@ function CheckTypeInfo(){
  * @returns
  */
 function clickinfo(pid,id,typename,remarks){
-	$("#goodstype-info #ftype").val(pid)
+	UpdateBtnState();
+	$("#goodstype-info #ftype").val(pid);
 	$("#goodstype-info #typeid").val(id);
 	$("#goodstype-info #typename").val(typename);
 	$("#goodstype-info #typeremarks").val(remarks);
-	UpdateBtnState();
 }
 /**
  * 
@@ -103,4 +123,29 @@ function getGoodsTypeTree(e){
 			})
 		}
 	})
+}
+/**
+ * 获取父产品类型列表
+ * @returns
+ */
+function getParentGoods(){
+	$.ajax({
+		contenType:'application/json',
+		Type:'POST',
+		dataType:'json',
+		url:"../goods/goodstypeparent.do",
+		success:function(data){
+			$("#goodstype-info #ftype").empty();
+			$("#goodstype-info #ftype").append("<option value='-1'>请选择……</option>")
+			$.each(data.typelist,function(i,d){
+				var innerHTML="<option value="+d.id+">"+d.typename+"</option>";
+				$("#goodstype-info #ftype").append(innerHTML);
+			})
+		}
+	})
+}
+
+function reLoadData(){
+	getParentGoods();
+	getGoodsTypeTree("#type-tree")
 }

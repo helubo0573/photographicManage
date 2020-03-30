@@ -100,4 +100,11 @@
     	from goods_type
     	where org_id = #{orgId,jdbcType=INTEGER} and parent_id = -1
     </select>
+    
+    <delete id="deleteGoodsType" parameterType="INTEGER">
+    	delete from goods_type
+		where
+		id = #{id}
+    </delete>
+    
 </mapper>

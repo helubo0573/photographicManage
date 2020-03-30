@@ -18,4 +18,5 @@ public interface GoodsTypeMapper extends BaseMapper<GoodsType, Long> {
 
     List<GoodsType> getParentByOrg(int orgId);
 
+    int deleteGoodsType(int id);
 }
