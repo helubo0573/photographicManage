@@ -20,5 +20,11 @@ public interface GoodsTypeService extends BaseService<GoodsType, Long>{
 	
 	List<GoodsType> getParentByOrg(int integer);
 	
-	int deleteGoodeType(int id);
+	int deleteGoodeType(int id); 
+	
+	int insertGoodsType(GoodsType record);
+	
+	int updateGoodsType(Map<String,Object> param);
+	
+	List<GoodsType> getChildren(int orgid,int id);
 }

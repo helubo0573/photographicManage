@@ -1,5 +1,6 @@
 package com.heav.photographic.core.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -52,6 +53,26 @@ public class GoodsTypeServiceImpl extends BaseServiceImpl<GoodsType, Long> imple
 	@Override
 	public int deleteGoodeType(int id) {
 		return goodsTypeMapper.deleteGoodsType(id);
+	}
+
+	@Override
+	public int insertGoodsType(GoodsType record) {
+		// TODO Auto-generated method stub
+		return goodsTypeMapper.save(record);
+	}
+
+	@Override
+	public int updateGoodsType(Map<String, Object> param) {
+		
+		return goodsTypeMapper.updateSelective(param);
+	}
+
+	@Override
+	public List<GoodsType> getChildren(int orgid,int id) {
+		Map<String,Object> param = new HashMap<String, Object>();
+		param.put("orgId", orgid);
+		param.put("parentId", id);
+		return goodsTypeMapper.listSelective(param);
 	}
 	
 }

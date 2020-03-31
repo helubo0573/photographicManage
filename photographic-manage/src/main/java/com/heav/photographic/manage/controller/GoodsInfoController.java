@@ -59,12 +59,22 @@ public class GoodsInfoController {
 			@RequestParam(value = "typename")String typename,
 			@RequestParam(value = "remarks")String remarks) {
 		UserInfo user=(UserInfo) request.getSession().getAttribute("SysUser");
-		GoodsType record=new GoodsType();
-		record.setOrgId(user.getOrgId());
-		record.setParentId(parentId);
-		record.setTypename(typename);
-		record.setRemarks(remarks);
-		int n=goodsservice.insert(record);
+		int n=0;
+		if(typeid!=null && !"".equals(typeid)) {
+			Map<String,Object> param=new HashMap<String, Object>();
+			param.put("id", typeid);
+			param.put("parentId",parentId);
+			param.put("typename",typename);
+			param.put("remarks",remarks);
+			n=goodsservice.updateGoodsType(param);
+		}else {
+			GoodsType record=new GoodsType();
+			record.setOrgId(user.getOrgId());
+			record.setParentId(parentId);
+			record.setTypename(typename);
+			record.setRemarks(remarks);
+			n=goodsservice.insert(record);
+		}
 		Map<String, Object> res = new HashMap<String, Object>();
 		if (n < 0)
 		{
@@ -80,17 +90,23 @@ public class GoodsInfoController {
 	}
 	@RequestMapping(value="/goods/deletegoodstype")
 	public void deleteGoodsType(HttpServletRequest request,HttpServletResponse response,@RequestParam(value = "delid")String typeid) {
-		int n=goodsservice.deleteGoodeType(Integer.parseInt(typeid));
+		UserInfo user=(UserInfo) request.getSession().getAttribute("SysUser");
+		int num=goodsservice.getChildren(user.getOrgId(), Integer.parseInt(typeid)).size();
 		Map<String, Object> res = new HashMap<String, Object>();
-		if (n < 0)
-		{
+		if(num==0) {
+			int n=goodsservice.deleteGoodeType(Integer.parseInt(typeid));
+			if (n < 0)
+			{
+				res.put(Constant.RESPONSE_CODE, Constant.FAIL_CODE_VALUE);
+				res.put(Constant.RESPONSE_CODE_MSG, "删除失败");
+			} else
+			{
+				res.put(Constant.RESPONSE_CODE, Constant.SUCCEED_CODE_VALUE);
+				res.put(Constant.RESPONSE_CODE_MSG, "删除成功");
+			}			
+		}else {
 			res.put(Constant.RESPONSE_CODE, Constant.FAIL_CODE_VALUE);
-			res.put(Constant.RESPONSE_CODE_MSG, "删除失败");
-		} else
-		{
-			res.put(Constant.RESPONSE_CODE, Constant.SUCCEED_CODE_VALUE);
-			res.put(Constant.RESPONSE_CODE_MSG, "删除成功");
-
+			res.put(Constant.RESPONSE_CODE_MSG, "请先删除子类型后再尝试删除此产品类型");
 		}
 		ServletUtils.writeToResponse(response, res);
 	}

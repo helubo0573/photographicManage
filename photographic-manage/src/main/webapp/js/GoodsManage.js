@@ -20,9 +20,32 @@ function NewGoodsType(){
 		})
 	}
 }
+/**
+ * 修改产品类型信息
+ * @returns
+ */
 function UpdateGoodsType(){
-	$("#goodstype-info #ftype").val(1)
+	if(CheckTypeInfo()){
+		$.ajax({
+			contenType:'application/json',
+			Type:'POST',
+			dataType:'json',
+			url:"../goods/savegoodstype.do",
+			data:CreateGoodsTypeData(),
+			success:function(data){
+				if(data.code==200){
+					layer.msg(data.msg);
+					ResetGoodsType();
+					reLoadData();
+				}
+			}
+		})
+	}
 }
+/**
+ * 删除产品类型信息
+ * @returns
+ */
 function DeleteGoodsType(){
 	var delid=$("#goodstype-info #typeid").val();
 	layer.confirm("是否删除产品类型:"+$("#goodstype-info #typename").val()+"?",{
@@ -39,6 +62,8 @@ function DeleteGoodsType(){
 						layer.msg(data.msg)
 						ResetGoodsType();
 						reLoadData();
+					}else{
+						layer.msg(data.msg)
 					}
 				}
 			})			

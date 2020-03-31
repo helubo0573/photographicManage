@@ -14,14 +14,14 @@
 }
 </style>
 </head>
-<script type="text/javascript" src="../js/GoodsManage.js?d=202003302"></script>
+<script type="text/javascript" src="../js/GoodsManage.js?d=202003303"></script>
 <body>
 	<div class="body-sdiv">
 		<div class="title-div">
 			产品类型维护
 		</div>
 		<div class="box-div">
-			<div style="float:left;display: inline-block; width: 180px; height: 100%; padding: 10px; border: 1px solid #ddd; overflow: auto;">
+			<div style="float:left;display: inline-block; width: 200px; height: 100%; padding: 10px; border: 1px solid #ddd; overflow: auto;">
 				<%@include file="List.jsp" %>
 			</div>
 			<div style="margin-left: 210px;border: 1px solid;height: 100%;">
@@ -29,6 +29,5 @@
 			</div>
 		</div>
 	</div>
-	
 </body>
 </html>
