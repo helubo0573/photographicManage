@@ -13,9 +13,15 @@ import com.heav.photographic.core.common.constant.PathConstant;
 @Controller
 public class SalesOrdersController {
 
-	@RequestMapping(value="/salesorders/orderInfo")
+	@RequestMapping(value="/sales/orderInfo")
 	public String toOrderInfo(HttpServletRequest request,HttpServletResponse response) {
 	
 		return PathConstant.OrderInfo;
+	}
+	
+	@RequestMapping(value ="/sales/entireManage")
+	public String toEntireManage(HttpServletRequest request,HttpServletResponse response) {
+		
+		return PathConstant.EntireManage;
 	}
 }
