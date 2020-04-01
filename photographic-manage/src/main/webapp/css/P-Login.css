@@ -13,6 +13,9 @@ img {
 	 position: absolute;
 	 -webkit-transition: opacity .3s;
 	  transition: opacity .3s;
+	  max-width:  100%;
+	width: auto;
+	height: auto;
 }
 .login-box{
 	padding:20px 30px;

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./css/Commons.css">
-    <link rel="stylesheet" type="text/css" href="./css/P-Login.css?v=20200221801">
+    <link rel="stylesheet" type="text/css" href="./css/P-Login.css?v=202004012">
 	<title>翰格天行影楼经营管理系统</title>
 </head>
 <body onkeydown="keyLogin()">
