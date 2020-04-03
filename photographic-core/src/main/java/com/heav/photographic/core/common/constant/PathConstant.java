@@ -22,4 +22,6 @@ public class PathConstant {
 	public static final String ResetPassword="forward:/WEB-INF/jsp/MemberCenter/ResetPassword/ResetPassword.jsp"; //找回密码
 	
 	
+	/***其他页面**/
+	public static final String ErrorPage="forward:/404.jsp";
 }

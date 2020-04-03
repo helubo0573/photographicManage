@@ -17,4 +17,9 @@ public class MainPageController {
 	public String toMainPage(HttpServletRequest request,HttpServletResponse response) {
 		return PathConstant.FrameMainPage;
 	}
+	
+	@RequestMapping(value="/404")
+	public String toErrorPage(HttpServletRequest request,HttpServletResponse response) {
+		return PathConstant.ErrorPage;
+	}
 }
