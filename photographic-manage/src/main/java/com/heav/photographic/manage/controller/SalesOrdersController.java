@@ -24,4 +24,10 @@ public class SalesOrdersController {
 		
 		return PathConstant.EntireManage;
 	}
+	
+	@RequestMapping(value = "/sales/neworder.do")
+	public String toSalesOrder(HttpServletRequest request,HttpServletResponse response) {
+		
+		return PathConstant.SalesOrder;
+	}
 }

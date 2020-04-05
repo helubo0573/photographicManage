@@ -8,6 +8,7 @@ public class PathConstant {
 	public static final String FrameWorkbenchPage="forward:/WEB-INF/jsp/Frame/Workbench.jsp";	//首页
 	
 	/***订单管理*/
+	public static final String SalesOrder="forward:/WEB-INF/jsp/SalesManage/SalesOrder/Info.jsp";	//新增销售单
 	public static final String OrderInfo="forward:/WEB-INF/jsp/SalesManage/Orders/OrderInfo.jsp";  //订单信息管理
 	public static final String EntireManage="forward:/WEB-INF/jsp/SalesManage/Entire/Manage.jsp";//拍摄套餐管理
 	
