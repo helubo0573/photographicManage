@@ -6,7 +6,28 @@
 .info-div{
 	
 }
-.layui-nav{cursor: pointer;}
+.layui-nav,.point{cursor: pointer;}
 .btn-div{	margin-top: 20px;	text-align: center;}
 .btn{	margin-right: 10px;}
 .boxshow:hover{	cursor: pointer;box-shadow: 0 0 10px #FFFFFF;}
+.box-div{	border: 1px solid;	padding:10px;}
+.smart-delete{
+	position: relative;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    line-height: 20px;
+    margin-left: 8px;
+    top: 1px;
+    text-align: center;
+    font-size: 14px;
+    color: #c2c2c2;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+    cursor: pointer;
+}
+.smart-delete:hover{
+	border-radius: 2px;
+    background-color: #FF5722;
+    color: #fff;
+}

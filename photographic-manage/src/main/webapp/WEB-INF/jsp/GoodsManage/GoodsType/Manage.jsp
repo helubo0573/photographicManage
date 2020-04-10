@@ -7,11 +7,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css">
-.box-div{
-	height: 500px;
-	border: 1px solid;
-	padding:10px;
-}
 </style>
 </head>
 <script type="text/javascript" src="../js/GoodsManage.js?d=202003303"></script>
@@ -20,7 +15,7 @@
 		<div class="title-div">
 			产品类型维护
 		</div>
-		<div class="box-div">
+		<div class="box-div" style="height: 500px;">
 			<div style="float:left;display: inline-block; width: 200px; height: 100%; padding: 10px; border: 1px solid #ddd; overflow: auto;">
 				<%@include file="List.jsp" %>
 			</div>

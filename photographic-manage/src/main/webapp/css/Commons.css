@@ -39,7 +39,17 @@
 
 .sub-box{
 	border: 2px solid white;
-	width: 90%;
-	padding:10px;
+	padding:10px 10px 10px 30px;;
 	margin: 5px 0px;
+}
+.table{
+	color: #555;
+	font-size: 12px;
+	overflow-y: scroll;
+}
+.table th{
+	text-align: center;
+}
+.table td{
+	text-align: center;
 }
