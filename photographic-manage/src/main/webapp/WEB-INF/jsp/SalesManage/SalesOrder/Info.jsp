@@ -79,7 +79,7 @@
 					    <td width="188px">
 					        <div class="input-group input-group-sm">
 					            <span class="th input-group-addon">销售顾问</span>
-					            <input type="text" class="form-control" placeholder="" maxlength="8">
+					            <input type="text" class="form-control point" placeholder="点击选择" maxlength="8" readonly="readonly">
 					        </div>
 					    </td>
 					    <td rowspan="6" width="428">
@@ -145,7 +145,7 @@
 					<tr>
 						<td>
 							<div class="input-group input-group-sm">
-					            <span class="th input-group-addon">套系名称</span>
+					            <span class="th input-group-addon">套餐名称</span>
 					            <input type="text" class="form-control point" placeholder="点击选择" readonly="readonly">
 					        </div>
 					    </td>
