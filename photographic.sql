@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50099
 File Encoding         : 65001
 
-Date: 2020-03-14 17:20:35
+Date: 2020-04-12 09:57:02
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -36,16 +36,17 @@ INSERT INTO `administrator` VALUES ('administrator', 'gbbbgf3w44navmo5d3', '0');
 DROP TABLE IF EXISTS `goods_type`;
 CREATE TABLE `goods_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `org_id` varchar(32) DEFAULT NULL COMMENT '机构id',
+  `org_id` int(11) DEFAULT NULL COMMENT '机构id',
   `parent_id` int(11) DEFAULT NULL,
   `typename` varchar(30) DEFAULT NULL COMMENT '产品类型名称',
   `remarks` varchar(100) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of goods_type
 -- ----------------------------
+INSERT INTO `goods_type` VALUES ('1', '0', '-1', '相框', ''), ('3', '0', '1', '撒打算1', '23a'), ('4', '0', '1', 'aadasd', 'asas'), ('5', '0', '1', '白珍珠', '121');
 
 -- ----------------------------
 -- Table structure for `org_dept`
@@ -68,7 +69,8 @@ CREATE TABLE `org_dept` (
 -- ----------------------------
 DROP TABLE IF EXISTS `org_info`;
 CREATE TABLE `org_info` (
-  `id` varchar(32) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `org_code` varchar(32) DEFAULT NULL,
   `org_name` varchar(50) NOT NULL DEFAULT '' COMMENT '机构名称',
   `org_address` varchar(6) NOT NULL DEFAULT '' COMMENT '所在地',
   `site` varchar(100) DEFAULT NULL COMMENT '详细地址',
@@ -81,7 +83,7 @@ CREATE TABLE `org_info` (
 -- ----------------------------
 -- Records of org_info
 -- ----------------------------
-INSERT INTO `org_info` VALUES ('', '诺金山', '耒阳', '城北路178', '婚纱照、宝宝照', '2020-02-26', '1');
+INSERT INTO `org_info` VALUES ('0', '430481001', '诺金山', '耒阳', '城北路178', '婚纱照、宝宝照', '2020-02-26', '1');
 
 -- ----------------------------
 -- Table structure for `org_post`
@@ -113,12 +115,12 @@ CREATE TABLE `sys_menu` (
   `sort` int(11) DEFAULT NULL COMMENT '排序',
   `remarks` varchar(30) DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='菜单表';
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='菜单表';
 
 -- ----------------------------
 -- Records of sys_menu
 -- ----------------------------
-INSERT INTO `sys_menu` VALUES ('1', '个人中心', '0', null, 'MemberCenter', '4', ''), ('2', '个人详细信息', '1', '/member/memberdetailinfo.do', 'DetailInfo', '1', ''), ('4', '密码重置', '1', '/member/resetpassword.do', 'ResetPd', '4', ''), ('7', '产品管理', '0', null, 'GoodsManage', '3', ''), ('8', '产品信息管理', '7', '/goods/goodsinfo.do', 'GoodsInfo', '3', ''), ('9', '销售单管理', '0', null, 'SalesOrders', '1', ''), ('10', '订单信息', '9', '/salesorders/orderInfo.do', 'OrderInfo', '2', ''), ('11', '产品类型管理', '7', '/goods/goodstype.do', 'GoodsType', '1', ''), ('12', '产品规格管理', '7', '/goods/goodssize.do', 'GoodsSize', '2', ''), ('13', '新增订单', '9', '/salesorders/neworder.do', 'NewOrder', '1', ''), ('14', '服务流程管控', '0', null, 'PGQA', '2', ''), ('15', '摄控管理', '14', '/pgqa/casemanage.do', 'CaseManage', '1', ''), ('16', '服务进度管理', '14', '/pgqa/processmanage.do', 'ProcessManage', '2', '');
+INSERT INTO `sys_menu` VALUES ('1', '个人中心', '0', null, 'MemberCenter', '4', ''), ('2', '个人详细信息', '1', '/member/memberdetailinfo.do', 'DetailInfo', '1', ''), ('4', '密码重置', '1', '/member/resetpassword.do', 'ResetPd', '4', ''), ('7', '产品管理', '0', null, 'GoodsManage', '3', ''), ('8', '产品信息管理', '7', '/goods/goodsinfo.do', 'GoodsInfo', '3', ''), ('9', '销售管理', '0', null, 'SalesManage', '1', ''), ('10', '订单信息', '9', '/sales/orderInfo.do', 'OrderInfo', '2', ''), ('11', '产品类型管理', '7', '/goods/goodstype.do', 'GoodsType', '1', ''), ('12', '产品规格管理', '7', '/goods/goodssize.do', 'GoodsSize', '2', ''), ('13', '新增订单', '9', '/sales/neworder.do', 'NewOrder', '1', ''), ('14', '服务流程管控', '0', null, 'PGQA', '2', ''), ('15', '摄控管理', '14', '/pgqa/casemanage.do', 'CaseManage', '1', ''), ('16', '服务进度管理', '14', '/pgqa/processmanage.do', 'ProcessManage', '2', ''), ('17', '拍摄套餐管理', '9', '/sales/entireManage.do', 'EntireManage', '3', '');
 
 -- ----------------------------
 -- Table structure for `sys_perm`
@@ -254,4 +256,4 @@ CREATE TABLE `user_info` (
 -- ----------------------------
 -- Records of user_info
 -- ----------------------------
-INSERT INTO `user_info` VALUES ('1', 'helubo0573', 'gbbbgf3w44navmo5d3hkyzmezhbwojf2k22sqkkiz7zswqd5yw2k2kmixfjvhlkukxtupwzfxkg4u', '2019-06-28 00:02:28', '18773454340', null, null, '1', '0');
+INSERT INTO `user_info` VALUES ('1', 'helubo0573', 'gbbbgf3w44navmo5d3hkyzmezhbwojf2k22sqkkiz7zswqd5yw2k2kmixfjvhlkukxtupwzfxkg4u', '2019-06-28 00:02:28', '18773454340', null, '0', '1', '0');
