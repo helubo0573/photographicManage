@@ -21,7 +21,7 @@
 		<photographic.core.version>0.1.0</photographic.core.version>
 		<guava.version>17.0</guava.version>
 		<jackson.core.version>2.6.1</jackson.core.version>
-		<jackson.databind.version>2.4.3</jackson.databind.version>
+		<jackson.databind.version>2.12.7.1</jackson.databind.version>
 		<jackson.annotations.version>2.6.1</jackson.annotations.version>
 		<jackson.mapper.version>1.9.4</jackson.mapper.version>
 		<fastjson.version>1.1.31</fastjson.version>
